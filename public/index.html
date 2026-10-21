@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio Booking</title>
+</head>
+<body>
+  <h1>Welcome to Studio Booking</h1>
+  <p>Book your music studio here.</p>
+  <button onclick="loadBookings()">View Bookings</button>
+  <pre id="result"></pre>
+
+  <script>
+    async function loadBookings() {
+      const response = await fetch('/api/bookings');
+      const data = await response.json();
+      document.getElementById('result').textContent =
+        JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
